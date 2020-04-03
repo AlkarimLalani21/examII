@@ -1,0 +1,26 @@
+<div class="component-body">
+    <h1>New Product</h1>
+    <div *ngIf="createProduct">
+        <form class="form-container" (submit)="create()">
+            <div class="form-line">Name: <input type="text" name="name"  minlength="3"  [(ngModel)]="createProduct.name"  required>
+                <div *ngIf="error.name">
+                    <div *ngIf="error.name">
+                        {{error.name.message}}
+                  </div>
+                </div>
+            </div>
+            <div class="form-line">QTY: <input type="text" name="quantity" required quantity="0" #name='ngModel' [(ngModel)]="createProduct.quantity"> 
+                <div *ngIf="error.quantity">
+                    {{error.quantity.message}}
+                </div>
+            </div>
+            <div class="form-line">Price: <input type="text" name="price" [(ngModel)]="createProduct.price"> 
+                <div *ngIf="error.price">
+                    {{error.price.message}}
+                </div>
+            </div>
+            <input type="submit" value="Create">
+        </form>
+        <button (click)="handleCancelClick()">Cancel</button>
+    </div>
+</div>

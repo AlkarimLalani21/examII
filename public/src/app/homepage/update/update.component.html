@@ -1,0 +1,22 @@
+<div class="component-body">
+    <h1>Update Product</h1>
+    <div *ngIf="product">
+        <form (submit)="updateProduct()">
+            <div class="form-line">Name: <input type="text" name="name" [(ngModel)]="product.name" placeholder="{{product.name}}" minlength="3" required>
+                    <div *ngIf="error.name">
+                        {{error.name.message}}
+                  </div>
+            </div>
+            <div class="form-line"> QTY:<input type="text" name="quantity" [(ngModel)]="product.quantity" placeholder="{{product.quantity}}">
+                <div *ngIf="error.quantity">{{error.quantity.message}}</div>
+            </div>
+            <div class="form-line">Price: <input type="text" name="price" [(ngModel)]="product.price" placeholder="{{product.price}}">
+                <div *ngIf="error.price">
+                    {{error.price.message}}
+                </div>
+            </div>
+            <input type="submit" value="Update">
+        </form>
+        <button (click)="handleCancelClick()">Cancel</button>
+    </div>
+</div>
